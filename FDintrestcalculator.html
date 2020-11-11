@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FD Interest Calulator</title>
+    <style>
+        body{
+            text-align: center;
+            margin-left: 450px;
+            margin-right: 450px;
+            padding: 20px;
+            font-size: 20px;
+        }
+        .cal{
+            border: 4px solid ;
+            border-radius: 30px;
+            background-color: cyan;
+        }
+        .fd{
+            font-size: 30px;
+            color: red;
+            
+        }
+        #amount{
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 200px;
+            height: 30px;
+        }
+        #username{
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 200px;
+            height: 30px;
+        }
+        #y{
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 200px;
+            height: 30px;
+        }
+        button{
+            border: 2px solid black;
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: blue;
+            color: whitesmoke;
+            margin-top: 10px;
+        }
+        table{
+            margin-top: -200px;
+        }
+        .border{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cal">
+<h1 class="fd">FD INTEREST CALCULATOR</h1>
+<div class="border">
+<table>
+    <tr>
+        <th><label>Enter Your Name </label></th>
+        <td>:</td>
+        <td><input type="text" name="username" id="username" placeholder="Enter Your Name"></td><br>
+        </tr>
+        <tr>
+        <th><label>Enter Amount </label></th>
+        <td>:</td>
+        <td><input type="text" name="amount" id="amount" placeholder="Enter the amount"></td><br><br>
+        </tr>
+        <tr>
+        <th><label>Select No of Years</label></th>
+        <td>:</td>
+        <td><select name="y" id="y">
+            <option value=" ">Select no of years</option>
+            <option value="1">1 year</option>
+            <option value="2">2 years</option>
+            <option value="3">3 years</option>
+            <option value="4">4 years</option>
+            <option value="5">5 years</option>
+       </select></td><br><br>
+       </tr>
+       <tr>
+       <th><label>Select the age</label></th>
+       <td>:</td>
+        <td><input type="radio" name="a" id="a" value="70">Greater than 60</td>
+        <td><input type="radio" name="a" id="a" value="60">Less than 60</td><br><br>
+        </tr>
+        <tr>
+        <td><button onclick="display()">Submit</button></td><br><br>
+        </tr>
+        <tr>
+        <label id="res"></label></tr>
+        </div>
+        </div>
+    <script>
+        function display(){
+            var username = document.getElementById("username").value;
+            var amount = parseInt(document.getElementById("amount").value);
+            var a = parseInt(document.getElementById("a").value);
+            var y = parseInt(document.getElementById("y").value);
+            if(a>60){
+                var si=(amount*8*y)/100;
+                var total=amount+si;
+            }
+            else{
+                var si=(amount*6*y)/100;
+                var total=amount+si;
+            }
+            document.getElementById("res").innerHTML = `Hey ${username} your maturity amount is ${total} for ${y} years`
+        }
+    </script>
+</body>
+</html>
